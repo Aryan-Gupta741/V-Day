@@ -29,7 +29,7 @@
         h1 { font-family: 'Dancing Script', cursive; color: #d63384; font-size: 3rem; margin: 0; }
         p { font-size: 1.1rem; color: #555; line-height: 1.6; }
         
-        .main-gif { width: 200px; margin: 15px 0; border-radius: 25px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .main-gif { width: 220px; margin: 15px 0; border-radius: 25px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
 
         button { 
             padding: 15px 30px; border-radius: 50px; border: none; font-weight: bold; 
@@ -42,7 +42,6 @@
 
         #no-btn { position: absolute; white-space: nowrap; transition: 0.1s; z-index: 1000; }
 
-        /* Collage Page */
         #collage-page {
             display: none; width: 100vw; height: 100vh; position: fixed;
             top: 0; left: 0; background: var(--bg-gradient); overflow-y: auto; padding: 50px 20px; box-sizing: border-box;
@@ -60,23 +59,19 @@
         .polaroid img { width: 100%; height: 230px; object-fit: cover; border-radius: 3px; }
         .polaroid-text { font-family: 'Dancing Script', cursive; text-align: center; margin-top: 12px; font-size: 1.4rem; color: #444; }
 
-        /* Final Note Overlay */
         #note-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.75); z-index: 2000; justify-content: center; align-items: center;
         }
         .note-card {
-            background: #fffafa; padding: 40px; border-radius: 30px; max-width: 450px; width: 85%;
+            background: #fffafa; padding: 40px; border-radius: 30px; max-width: 500px; width: 85%;
             position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-            font-family: 'Dancing Script', cursive; text-align: center; border: 5px solid var(--accent);
+            font-family: 'Quicksand', sans-serif; text-align: center; border: 5px solid var(--accent);
+            max-height: 80vh; overflow-y: auto;
         }
 
-        /* Floating Items */
         .floating-item { position: fixed; top: -10%; font-size: 24px; z-index: 1; animation: fall linear infinite; pointer-events: none; }
-        @keyframes fall { 
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; } 
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } 
-        }
+        @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
@@ -94,15 +89,15 @@
     </div>
 
     <div id="quiz-1" class="container">
-        <img class="main-gif" style="width:120px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBxeHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ97Lrg3Wcg8/giphy.gif">
+        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmN3YWVpZ25xZ3R4Y3V5ZGRuM3J2dzZ6ZGRuM3J2dzZ6ZGRuM3J2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vN5m4p77U3m6Rj9S3z/giphy.gif">
         <h1>Step 1: The Truth ✅</h1>
         <p>On a scale of 1 to 10, how much do I annoy you?</p>
-        <button class="secondary-btn" onclick="alert('Lies! It is at least an 11. 😂')">1 - Never</button>
-        <button class="primary-btn" onclick="nextPage('quiz-2')">10 - But I love it! 🥰</button>
+        <button class="secondary-btn" onclick="alert('Lies! I know I can be a handful. 😂')">0 - I'm an angel 😇</button>
+        <button class="primary-btn" onclick="nextPage('quiz-2')">11/10 - But it's my favorite thing! ❤️</button>
     </div>
 
     <div id="quiz-2" class="container">
-        <img class="main-gif" style="width:120px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBxeHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9S5i66R0f38pE2s81/giphy.gif">
+        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3N2NmY5Z3R4Y3V5ZGRuM3J2dzZ6ZGRuM3J2dzZ6ZGRuM3J2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Lp71UqhpHhcyS2QCZG/giphy.gif">
         <h1>Step 2: Pizza 🍕</h1>
         <p>If we have one slice of pizza left, who gets it?</p>
         <button class="secondary-btn" onclick="alert('Wrong! I would give it to you anyway. ❤️')">Me</button>
@@ -111,12 +106,12 @@
 
     <div id="quiz-3" class="container">
         <h1>Step 3: The Promise 🤙</h1>
-        <p>Do you promise to be the happiest girl in the world in 2026?</p>
+        <p>Do you promise to let me love you forever and always?</p>
         <button class="primary-btn" onclick="nextPage('ask-page')">I Pinky Promise! ✨</button>
     </div>
 
     <div id="ask-page" class="container">
-        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpueG5tbm8zZmd6N3R1ZzR2bm9oYnd6eG5oZzVxeG5oZzVxeG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iCVz2SSs8BKhcO8m63/giphy.gif">
+        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDYyNm9oYnd6eG5oZzVxeG5oZzVxeG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iCVz2SSs8BKhcO8m63/giphy.gif">
         <h2 style="color: #ff4d6d;">Will you be my Valentine in 2026? 🥺❤️</h2>
         <div style="height: 140px; position: relative;">
             <button id="yes-btn" class="primary-btn" style="font-size: 1.4rem;" onclick="sayYes()">YES! 🥰</button>
@@ -157,10 +152,12 @@
 
     <div id="note-overlay">
         <div class="note-card">
-            <h1 style="color: #d63384;">To My Princess,</h1>
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.7rem; color: #444; line-height: 1.4;">
-                I just wanted to say that being with you is the highlight of my life. Thank you for making 2026 the best year yet. I lose myself in your eyes every single day...<br><br>
-                Forever Yours, ❤️
+            <h2 style="color: #d63384; font-family: 'Dancing Script', cursive; font-size: 2.5rem;">TO MY GIRLFRIEND 💖</h2>
+            <p style="font-size: 1.3rem; color: #444; line-height: 1.6;">
+                YOU ARE BRAVER THAN YOU BELIEVE, STRONGER THAN YOU SEEM, SMARTER THAN YOU THINK AND LOVED MORE THAN YOU KNOW. <br><br>
+                IF I COULD GIVE YOU ONE THING IN LIFE I WOULD GIVE YOU THE ABILITY TO SEE YOURSELF THROUGH MY EYES ONLY THEN WOULD YOU REALIZE HOW SPECIAL YOU ARE TO ΜΕ. 🌟<br><br>
+                <strong>you are my sunshine. ☀️</strong><br>
+                I Love you ❤️
             </p>
             <button class="secondary-btn" onclick="document.getElementById('note-overlay').style.display='none'">Close 😊</button>
         </div>
@@ -168,45 +165,12 @@
 
     <script>
         const audio = document.getElementById("myAudio");
-
-        function startExperience() {
-            audio.play().catch(e => console.log("Sound ready"));
-            nextPage('quiz-1');
-            startFloating();
-        }
-
-        function nextPage(id) {
-            document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-        }
-
-        function moveNo() {
-            const btn = document.getElementById('no-btn');
-            btn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
-            btn.style.top = Math.random() * (window.innerHeight - 100) + 'px';
-        }
-
-        function sayYes() {
-            document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
-            document.getElementById('collage-page').style.display = 'block';
-            confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
-        }
-
-        function showNote() {
-            document.getElementById('note-overlay').style.display = 'flex';
-        }
-
-        function startFloating() {
-            setInterval(() => {
-                const item = document.createElement('div');
-                item.innerHTML = ['❤️', '💖', '✨', '🌸'][Math.floor(Math.random() * 4)];
-                item.className = 'floating-item';
-                item.style.left = Math.random() * 100 + 'vw';
-                item.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                document.body.appendChild(item);
-                setTimeout(() => item.remove(), 6000);
-            }, 500);
-        }
+        function startExperience() { audio.play(); nextPage('quiz-1'); startFloating(); }
+        function nextPage(id) { document.querySelectorAll('.container').forEach(c => c.style.display = 'none'); document.getElementById(id).style.display = 'block'; }
+        function moveNo() { const btn = document.getElementById('no-btn'); btn.style.left = Math.random() * (window.innerWidth - 100) + 'px'; btn.style.top = Math.random() * (window.innerHeight - 100) + 'px'; }
+        function sayYes() { document.querySelectorAll('.container').forEach(c => c.style.display = 'none'); document.getElementById('collage-page').style.display = 'block'; confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } }); }
+        function showNote() { document.getElementById('note-overlay').style.display = 'flex'; }
+        function startFloating() { setInterval(() => { const h = document.createElement('div'); h.innerHTML = ['❤️','💖','✨','🌸'][Math.floor(Math.random()*4)]; h.className = 'floating-item'; h.style.left = Math.random()*100+'vw'; h.style.animationDuration = (Math.random()*3+3)+'s'; document.body.appendChild(h); setTimeout(() => h.remove(), 6000); }, 500); }
     </script>
 </body>
 </html>
