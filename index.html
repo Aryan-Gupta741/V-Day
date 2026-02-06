@@ -34,15 +34,13 @@
         button { 
             padding: 15px 30px; border-radius: 50px; border: none; font-weight: bold; 
             cursor: pointer; transition: 0.3s; font-size: 1.1rem; margin: 10px;
-            font-family: 'Quicksand', sans-serif;
         }
         
         .primary-btn { background: var(--accent); color: white; box-shadow: 0 5px 15px rgba(255,77,109,0.4); }
-        .primary-btn:hover { transform: translateY(-3px) scale(1.05); background: #ff3355; }
+        .primary-btn:hover { transform: translateY(-3px) scale(1.05); }
         .secondary-btn { background: white; color: var(--accent); border: 2px solid var(--accent); }
-        .secondary-btn:hover { background: #fff0f3; }
 
-        #no-btn { position: absolute; white-space: nowrap; transition: 0.15s cubic-bezier(0.17, 0.67, 0.83, 0.67); z-index: 1000; }
+        #no-btn { position: absolute; white-space: nowrap; transition: 0.1s; z-index: 1000; }
 
         /* Collage Page */
         #collage-page {
@@ -62,7 +60,7 @@
         .polaroid img { width: 100%; height: 230px; object-fit: cover; border-radius: 3px; }
         .polaroid-text { font-family: 'Dancing Script', cursive; text-align: center; margin-top: 12px; font-size: 1.4rem; color: #444; }
 
-        /* Final Note Styling */
+        /* Final Note Overlay */
         #note-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center;
@@ -70,11 +68,10 @@
         .note-card {
             background: #fffafa; padding: 40px; border-radius: 30px; max-width: 450px; width: 85%;
             position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-            font-family: 'Quicksand', sans-serif; text-align: center; border: 5px solid var(--accent);
+            font-family: 'Dancing Script', cursive; text-align: center; border: 5px solid var(--accent);
         }
-        .note-content { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #d63384; margin-bottom: 20px; }
 
-        /* Animations */
+        /* Floating Items */
         .floating-item { position: fixed; top: -10%; font-size: 24px; z-index: 1; animation: fall linear infinite; pointer-events: none; }
         @keyframes fall { 
             0% { transform: translateY(0) rotate(0deg); opacity: 1; } 
@@ -84,55 +81,54 @@
 </head>
 <body>
 
-    <audio id="myAudio" loop preload="auto">
+    <audio id="myAudio" loop>
+      <source src="music.mp3" type="audio/mpeg">
       <source src="https://files.catbox.moe/6p8u0o.mp3" type="audio/mpeg">
     </audio>
 
     <div id="intro-page" class="container">
         <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG5tbm8zZmd6N3R1ZzR2bm9oYnd6eG5oZzVxeG5oZzVxeG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif">
-        <h1>Hi Princess... ✨🌸</h1>
-        <p>I made this specifically for you. It's the 2026 edition! Please turn your sound on for the full vibe. 🔊💖</p>
-        <button class="primary-btn" onclick="startExperience()">Open My Heart 🎁❤️</button>
+        <h1>Hi Princess... ✨</h1>
+        <p>I have a special 2026 surprise for you. Please turn your sound up! 🔊💖</p>
+        <button class="primary-btn" onclick="startExperience()">Unlock My Heart ❤️</button>
     </div>
 
     <div id="quiz-1" class="container">
         <img class="main-gif" style="width:120px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBxeHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ97Lrg3Wcg8/giphy.gif">
-        <h1>Step 1: Be Honest! 🕵️‍♀️</h1>
+        <h1>Step 1: The Truth ✅</h1>
         <p>On a scale of 1 to 10, how much do I annoy you?</p>
-        <button class="secondary-btn" onclick="alert('Wrong! You know it\'s a 20/10. 😂')">1 - You're perfect</button>
+        <button class="secondary-btn" onclick="alert('Lies! It is at least an 11. 😂')">1 - Never</button>
         <button class="primary-btn" onclick="nextPage('quiz-2')">10 - But I love it! 🥰</button>
     </div>
 
     <div id="quiz-2" class="container">
         <img class="main-gif" style="width:120px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBxeHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9S5i66R0f38pE2s81/giphy.gif">
-        <h1>Step 2: Food Check 🍕</h1>
+        <h1>Step 2: Pizza 🍕</h1>
         <p>If we have one slice of pizza left, who gets it?</p>
-        <button class="secondary-btn" onclick="alert('I mean, I\'d let you have it, but you should share! 😜')">Me</button>
-        <button class="primary-btn" onclick="nextPage('quiz-3')">We split it 50/50 💑</button>
+        <button class="secondary-btn" onclick="alert('Wrong! I would give it to you anyway. ❤️')">Me</button>
+        <button class="primary-btn" onclick="nextPage('quiz-3')">You (because I'm a gentleman) 🎩</button>
     </div>
 
     <div id="quiz-3" class="container">
-        <img class="main-gif" style="width:120px" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXBxeHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Lp71UqhpHhcyS2QCZG/giphy.gif">
         <h1>Step 3: The Promise 🤙</h1>
-        <p>Do you promise to let me love you forever and always?</p>
-        <button class="primary-btn" onclick="nextPage('ask-page')">I Pinky Promise! ✨💖</button>
+        <p>Do you promise to be the happiest girl in the world in 2026?</p>
+        <button class="primary-btn" onclick="nextPage('ask-page')">I Pinky Promise! ✨</button>
     </div>
 
     <div id="ask-page" class="container">
-        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm5vNmt6NnJxdXJ0dG15Nzh6eHl4eHl4eHl4eHl4eHl4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iCVz2SSs8BKhcO8m63/giphy.gif">
-        <h2 style="color: #ff4d6d;">Will you be my Valentine in 2026? 🥺🌹</h2>
-        <div style="height: 140px; padding-top: 20px;">
+        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpueG5tbm8zZmd6N3R1ZzR2bm9oYnd6eG5oZzVxeG5oZzVxeG5oZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/iCVz2SSs8BKhcO8m63/giphy.gif">
+        <h2 style="color: #ff4d6d;">Will you be my Valentine in 2026? 🥺❤️</h2>
+        <div style="height: 140px; position: relative;">
             <button id="yes-btn" class="primary-btn" style="font-size: 1.4rem;" onclick="sayYes()">YES! 🥰</button>
-            <button id="no-btn" class="secondary-btn" onmouseover="moveNo()" onclick="moveNo()">No 🏃‍♀️</button>
+            <button id="no-btn" class="secondary-btn" onmouseover="moveNo()">No 🏃‍♀️</button>
         </div>
     </div>
 
     <div id="collage-page">
         <div style="text-align: center; color: white; padding: 20px;">
-            <h1 style="color: white; font-size: 3.5rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.2);">Yay! 🎉💕</h1>
-            <p style="font-size: 1.5rem; font-weight: 600;">I am officially the luckiest man alive. 🌈✨</p>
+            <h1 style="color: white; font-size: 3.5rem;">Yay! 🥳💕</h1>
+            <p style="font-size: 1.5rem;">I lose myself in those eyes...</p>
         </div>
-        
         <div class="messy-wrapper">
             <div class="polaroid"><img src="https://i.ibb.co/r21TF9Jn/image22.jpg"><div class="polaroid-text">My favorite ✨</div></div>
             <div class="polaroid"><img src="https://i.ibb.co/sJJtvFGF/image21.jpg"><div class="polaroid-text">So beautiful ❤️</div></div>
@@ -154,21 +150,19 @@
             <div class="polaroid"><img src="https://i.ibb.co/JRLnRBvt/image3.jpg"><div class="polaroid-text">Dreamy ✨</div></div>
             <div class="polaroid"><img src="https://i.ibb.co/6c63WZDP/image1.jpg"><div class="polaroid-text">Forever ♾️</div></div>
         </div>
-
         <div style="text-align: center; padding: 60px;">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnBxeHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4M3B4eHl4JmVwP12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vN5m4p77U3m6Rj9S3z/giphy.gif" style="width:100px; display:block; margin: 0 auto 10px;">
-            <button class="primary-btn" style="font-size: 1.5rem; padding: 20px 45px; border: 3px solid #fff;" onclick="showNote()">Read My Final Note 💌</button>
+            <button class="primary-btn" style="font-size: 1.5rem; padding: 20px 45px;" onclick="showNote()">Read My Final Note 💌</button>
         </div>
     </div>
 
     <div id="note-overlay">
         <div class="note-card">
-            <div class="note-content">
-                To My Princess,<br><br>
+            <h1 style="color: #d63384;">To My Princess,</h1>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.7rem; color: #444; line-height: 1.4;">
                 I just wanted to say that being with you is the highlight of my life. Thank you for making 2026 the best year yet. I lose myself in your eyes every single day...<br><br>
                 Forever Yours, ❤️
-            </div>
-            <button class="secondary-btn" onclick="document.getElementById('note-overlay').style.display='none'">Close with a Smile 😊</button>
+            </p>
+            <button class="secondary-btn" onclick="document.getElementById('note-overlay').style.display='none'">Close 😊</button>
         </div>
     </div>
 
@@ -176,55 +170,41 @@
         const audio = document.getElementById("myAudio");
 
         function startExperience() {
-            audio.play().catch(e => console.log("Audio play blocked by browser."));
+            audio.play().catch(e => console.log("Sound ready"));
             nextPage('quiz-1');
-            startFloatingItems();
+            startFloating();
         }
 
-        function nextPage(pageId) {
+        function nextPage(id) {
             document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
-            document.getElementById(pageId).style.display = 'block';
+            document.getElementById(id).style.display = 'block';
         }
 
         function moveNo() {
             const btn = document.getElementById('no-btn');
-            const x = Math.random() * (window.innerWidth - 120);
-            const y = Math.random() * (window.innerHeight - 60);
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
+            btn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            btn.style.top = Math.random() * (window.innerHeight - 100) + 'px';
         }
 
         function sayYes() {
             document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
             document.getElementById('collage-page').style.display = 'block';
-            
-            // Full screen confetti burst
-            const end = Date.now() + 15 * 1000;
-            const colors = ['#ff4d6d', '#ffffff', '#ffafbd', '#ffc3a0'];
-
-            (function frame() {
-              confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors: colors });
-              confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors: colors });
-              if (Date.now() < end) requestAnimationFrame(frame);
-            }());
+            confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
         }
 
         function showNote() {
             document.getElementById('note-overlay').style.display = 'flex';
         }
 
-        function startFloatingItems() {
-            const icons = ['❤️', '💖', '✨', '🌸', '🍭', '🧸', '🌈'];
+        function startFloating() {
             setInterval(() => {
                 const item = document.createElement('div');
-                item.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                item.innerHTML = ['❤️', '💖', '✨', '🌸'][Math.floor(Math.random() * 4)];
                 item.className = 'floating-item';
                 item.style.left = Math.random() * 100 + 'vw';
-                item.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                item.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                item.style.animationDuration = (Math.random() * 3 + 3) + 's';
                 document.body.appendChild(item);
-                setTimeout(() => item.remove(), 8000);
+                setTimeout(() => item.remove(), 6000);
             }, 500);
         }
     </script>
