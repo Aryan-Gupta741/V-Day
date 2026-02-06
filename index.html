@@ -29,7 +29,16 @@
         h1 { font-family: 'Dancing Script', cursive; color: #d63384; font-size: 3rem; margin: 0; }
         p { font-size: 1.1rem; color: #555; line-height: 1.6; }
         
-        .main-gif { width: 220px; margin: 15px 0; border-radius: 25px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        /* Fixed Image Styling */
+        .main-img { 
+            width: 100%; 
+            max-width: 300px; 
+            height: 200px; 
+            margin: 15px 0; 
+            border-radius: 20px; 
+            object-fit: cover; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
+        }
 
         button { 
             padding: 15px 30px; border-radius: 50px; border: none; font-weight: bold; 
@@ -61,7 +70,7 @@
 
         #note-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center;
         }
         .note-card {
             background: #fffafa; padding: 40px; border-radius: 30px; max-width: 500px; width: 85%;
@@ -82,14 +91,14 @@
     </audio>
 
     <div id="intro-page" class="container">
-        <img class="main-gif" src="https://i.pinimg.com/originals/f4/01/24/f401242337a6727209930f7811904791.gif">
+        <img class="main-img" src="https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=500&auto=format&fit=crop">
         <h1>Hi Princess... ✨</h1>
         <p>I have a special 2026 surprise for you. Please turn your sound up! 🔊💖</p>
         <button class="primary-btn" onclick="startExperience()">Unlock My Heart ❤️</button>
     </div>
 
     <div id="quiz-1" class="container">
-        <img class="main-gif" src="https://i.pinimg.com/originals/a0/03/b0/a003b0c34e06247738f7a63415170327.gif">
+        <img class="main-img" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=500&auto=format&fit=crop">
         <h1>Step 1: The Truth ✅</h1>
         <p>On a scale of 1 to 10, how much do I annoy you?</p>
         <button class="secondary-btn" onclick="alert('Lies! I know I\'m a handful. 😂')">Zero - I'm an angel 😇</button>
@@ -97,7 +106,7 @@
     </div>
 
     <div id="quiz-2" class="container">
-        <img class="main-gif" src="https://i.pinimg.com/originals/31/34/46/3134460f47e6f890c23933c0356c9a3c.gif">
+        <img class="main-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop">
         <h1>Step 2: Pizza 🍕</h1>
         <p>If we have one slice of pizza left, who gets it?</p>
         <button class="secondary-btn" onclick="alert('Wrong! I would give it to you anyway. ❤️')">Me</button>
@@ -105,7 +114,7 @@
     </div>
 
     <div id="ask-page" class="container">
-        <img class="main-gif" src="https://i.pinimg.com/originals/77/4d/91/774d9134a41f64f26ca495f2a1768b44.gif">
+        <img class="main-img" src="https://images.unsplash.com/photo-1494972308935-1816ef397d51?q=80&w=500&auto=format&fit=crop">
         <h2 style="color: #ff4d6d;">Will you be my Valentine in 2026? 🥺❤️</h2>
         <div style="height: 140px; position: relative;">
             <button id="yes-btn" class="primary-btn" style="font-size: 1.4rem;" onclick="sayYes()">YES! 🥰</button>
